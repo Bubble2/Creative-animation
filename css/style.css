@@ -16,6 +16,7 @@
 	background:#eeedef;
 }
 
+/*------------demo1---------------*/
 .shell{
 	position:absolute;
 	bottom:0;
@@ -24,7 +25,7 @@
 	background:#676668;
 	border-radius:50px 50px 0 0;
 }
-.shell-wrap{
+.shell .shell-wrap{
 	height:250px;
 	margin:75px 15px 0;
 	background:#fff;
@@ -85,39 +86,6 @@
 	transform:rotate(-45deg) scaleX(.7) translate3d(8px,2px,0);
 }
 
-
-/*big icon*/
-.btn-menu-display{
-	bottom:150px;
-	right:150px;
-}
-.btn-menu-display .icon-menu{
-	width:50px;
-	height:50px;
-	margin:-25px 0 0 -25px;
-}
-.btn-menu-display .icon-menu b{
-	background:#03bad9;
-	width:50px;
-	height:6px;
-}
-.btn-menu-display .icon-menu b:nth-of-type(1){
-	top:3px;
-}
-.btn-menu-display .icon-menu b:nth-of-type(2){
-	top:22px;
-}
-.btn-menu-display .icon-menu b:nth-of-type(3){
-	top:41px;
-}
-.btn-menu-display .icon-menu-on b:nth-of-type(1){
-	transform:rotate(45deg) scaleX(.7) translate3d(23px,-4px,0);
-}
-.btn-menu-display .icon-menu-on b:nth-of-type(3){
-	transform:rotate(-45deg) scaleX(.7) translate3d(23px,4px,0);
-}
-
-
 /*transition*/
 .icon-menu-transition,
 .icon-menu-transition b{
@@ -125,17 +93,37 @@
 }
 
 
-/*small icon animation*/
+/*icon-menu-anim*/
 .icon-menu-anim{
-	animation:rotateIcon 3s .75s ease-out infinite;
+	position:absolute;
+	bottom:150px;
+	right:150px;
+	width:50px;
+	height:50px;
+	margin:-25px 0 0 -25px;
+	animation:animMenu 3s .75s ease-out infinite;
 }
-.icon-menu-anim  b:nth-of-type(1){
-	animation:rotateLine1 3s .75s ease-out infinite;
+.icon-menu-anim b{
+	position:absolute;
+	left:0;
+	background:#03bad9;
+	width:50px;
+	height:6px;
 }
-.icon-menu-anim  b:nth-of-type(3){
-	animation:rotateLine3 3s .75s ease-out infinite;
+.icon-menu-anim b:nth-of-type(1){
+	top:3px;
+	animation:animMenuLine1 3s .75s ease-out infinite;
 }
-@keyframes rotateIcon{
+.icon-menu-anim b:nth-of-type(2){
+	top:22px;
+}
+.icon-menu-anim b:nth-of-type(3){
+	top:41px;
+	transform:rotate(0) scaleX(1) translate(0);
+	animation:animMenuLine3 3s .75s ease-out infinite;
+}
+
+@keyframes animMenu{
 	0%{
 		transform:rotate(0deg);
 	}
@@ -152,70 +140,7 @@
 		transform:rotate(360deg);
 	}
 }
-@keyframes rotateLine1{
-	0%{
-		transform:rotate(0) scaleX(1) translate3d(0,0,0);
-	}
-	20%{
-		transform:rotate(45deg) scaleX(.7) translate3d(8px,-2px,0);
-	}
-	50%{
-		transform:rotate(45deg) scaleX(.7) translate3d(8px,-2px,0);
-	}
-	70%{
-		transform:rotate(0) scaleX(1) translate3d(0,0,0);
-	}
-	100%{
-		transform:rotate(0) scaleX(1) translate3d(0,0,0);
-	}
-}
-@keyframes rotateLine3{
-	0%{
-		transform:rotate(0) scaleX(1) translate3d(0,0,0);
-	}
-	20%{
-		transform:rotate(-45deg) scaleX(.7) translate3d(8px,2px,0);
-	}
-	50%{
-		transform:rotate(-45deg) scaleX(.7) translate3d(8px,2px,0);
-	}
-	70%{
-		transform:rotate(0) scaleX(1) translate3d(0,0,0);
-	}
-	100%{
-		transform:rotate(0) scaleX(1) translate3d(0,0,0);
-	}
-}
-
-
-/*big icon animation*/
-.btn-menu-display .icon-menu-anim{
-	animation:rotateIconDisplay 3s .75s ease-out infinite;
-}
-.btn-menu-display .icon-menu-anim  b:nth-of-type(1){
-	animation:rotateLine1Display 3s .75s ease-out infinite;
-}
-.btn-menu-display .icon-menu-anim  b:nth-of-type(3){
-	animation:rotateLine3Display 3s .75s ease-out infinite;
-}
-@keyframes rotateIconDisplay{
-	0%{
-		transform:rotate(0deg);
-	}
-	20%{
-		transform:rotate(180deg);
-	}
-	50%{
-		transform:rotate(180deg);
-	}
-	70%{
-		transform:rotate(360deg);
-	}
-	100%{
-		transform:rotate(360deg);
-	}
-}
-@keyframes rotateLine1Display{
+@keyframes animMenuLine1{
 	0%{
 		transform:rotate(0) scaleX(1) translate3d(0,0,0);
 	}
@@ -232,7 +157,7 @@
 		transform:rotate(0) scaleX(1) translate3d(0,0,0);
 	}
 }
-@keyframes rotateLine3Display{
+@keyframes animMenuLine3{
 	0%{
 		transform:rotate(0) scaleX(1) translate3d(0,0,0);
 	}
@@ -274,12 +199,12 @@
 	margin:-125% 0 0 -125%;
 	background:rgba(3,91,103,.15);
 }
-.tap-feedback-anim .tap-feedback,
+
 .tap-feedback-anim .tap-feedback-d1,
 .tap-feedback-anim .tap-feedback-d2{
-	animation:feedback .5s ease-out forwards;
+	animation:animFeedBack1 .5s ease-out forwards;
 }
-@keyframes feedback{
+@keyframes animFeedBack1{
 	0%{
 		transform:scale(1);
 		opacity:1;
@@ -290,12 +215,10 @@
 	}
 }
 
-.icon-menu-anim.tap-feedback-anim .tap-feedback,
-.icon-menu-anim.tap-feedback-anim .tap-feedback-d1,
-.icon-menu-anim.tap-feedback-anim .tap-feedback-d2{
-	animation:feedbackAnim 1.5s .75s ease-out forwards infinite;
+.icon-menu-anim .tap-feedback{
+	animation:animFeedBack2 1.5s .75s ease-out forwards infinite;
 }
-@keyframes feedbackAnim{
+@keyframes animFeedBack2{
 	0%{
 		transform:scale(1);
 		opacity:1;
@@ -310,3 +233,196 @@
 	}
 }
 
+
+
+/*------------demo2---------------*/
+.shell2{
+	position:absolute;
+	left:25px;
+	top:0;
+	width:380px;
+	height:350px;
+	background:#676668;
+}
+
+.shell2-wrap{
+	position:relative;
+	height:335px;
+	margin:0 15px 15px;
+	background:#eeedef;
+	overflow:hidden;
+}
+.player-container{
+	position:absolute;
+	left:0;
+	bottom:48px;
+	width:100%;
+	height:225px;
+	background:#fffeff;
+	box-shadow:0 -1px 10px rgba(0,0,0,.05);
+}
+.player-footbar{
+	position:absolute;
+	left:0;
+	bottom:0;
+	width:100%;
+	height:48px;
+	background:#848385;
+}
+
+.icon-pause-anim{
+	position:absolute;
+	right:155px;
+	bottom:155px;
+	width:60px;
+	height:48px;
+	animation:animPause 3s .75s ease-out infinite;
+}
+@keyframes animPause{
+	0%{
+		transform:rotate(0deg);
+	}
+	10%{
+		transform:rotate(90deg);
+	}
+	50%{
+		transform:rotate(90deg);
+	}
+	60%{
+		transform:rotate(180deg);
+	}
+	100%{
+		transform:rotate(180deg);
+	}
+}
+.icon-pause-anim b{
+	position:absolute;
+	width:17px;
+	height:48px;
+}
+
+.icon-pause-anim b:nth-of-type(1){
+	top:0;
+	left:6px;
+	animation:animPauseB1 3s .75s ease-out infinite;
+}
+.icon-pause-anim b:nth-of-type(2){
+	top:0;
+	right:6px;
+	animation:animPauseB2 3s .75s ease-out infinite;
+}
+@keyframes animPauseB1{
+	0%{
+		left:6px;
+		width:17px;
+	}
+	10%{
+		left:0;
+		width:30px;
+	}
+	50%{
+		left:0;
+		width:30px;
+	}
+	60%{
+		left:6px;
+		width:17px;
+	}
+	100%{
+		left:6px;
+		width:17px;
+	}
+}
+@keyframes animPauseB2{
+	0%{
+		right:6px;
+		width:17px;
+	}
+	10%{
+		right:0;
+		width:30px;
+	}
+	50%{
+		right:0;
+		width:30px;
+	}
+	60%{
+		right:6px;
+		width:17px;
+	}
+	100%{
+		right:6px;
+		width:17px;
+	}
+}
+.icon-pause-anim b s{
+	position:absolute;
+	top:0;
+}
+.icon-pause-anim b:nth-of-type(1) s:nth-of-type(1){
+	left:0;
+	width:0;
+	height:0;
+	border-width:48px 0 0 0;
+	border-style:solid;
+	border-color:rgba(0,0,0,0) #4cb6aa rgba(0,0,0,0) rgba(0,0,0,0);
+	animation:animPauseBS1 3s .75s ease-out infinite;
+}
+.icon-pause-anim b:nth-of-type(1) s:nth-of-type(2){
+	right:0;
+	width:100%;
+	height:100%;
+	background:#4cb6aa;
+	animation:animPauseBS2 3s .75s ease-out infinite;
+}
+.icon-pause-anim b:nth-of-type(2) s:nth-of-type(1){
+	right:0;
+	width:0;
+	height:0;
+	border-width:0 0 48px 0;
+	border-style:solid;
+	border-color:rgba(0,0,0,0) rgba(0,0,0,0) #4cb6aa rgba(0,0,0,0);
+	animation:animPauseBS1 3s .75s ease-out infinite;
+}
+.icon-pause-anim b:nth-of-type(2) s:nth-of-type(2){
+	left:0;
+	width:100%;
+	height:100%;
+	background:#4cb6aa;
+	animation:animPauseBS2 3s .75s ease-out infinite;
+}
+
+@keyframes animPauseBS1{
+	0%{
+		border-right-width:0;
+	}
+	10%{
+		border-right-width:30px;
+	}
+	50%{
+		border-right-width:30px;
+	}
+	60%{
+		border-right-width:0;
+	}
+	100%{
+		border-right-width:0;
+	}
+}
+@keyframes animPauseBS2{
+	0%{
+		width:100%;
+	}
+	10%{
+		width:0;
+	}
+	50%{
+		width:0;
+	}
+	60%{
+		width:100%;
+	}
+	100%{
+		width:100%;
+	}
+}
